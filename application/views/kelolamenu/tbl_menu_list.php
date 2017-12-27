@@ -49,7 +49,7 @@
                                     <th>Icon</th>
                                     <th>Is Main Menu</th>
                                     <th>Is Aktif</th>
-                                    <th width="100px">Action</th>
+                                    <th width="130px">Action</th>
                                 </tr>
                             </thead>
 

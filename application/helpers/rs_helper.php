@@ -21,4 +21,16 @@ function getFieldValue($table,$field,$key,$value){
     $data = $ci->db->get($table)->row_array();
     return $data[$field];
 }
+
+// untuk chek akses level pada modul peberian akses
+function checked_akses($id_user_level,$id_menu){
+    $ci = get_instance();
+    $ci->db->where('id_user_level',$id_user_level);
+    $ci->db->where('id_menu',$id_menu);
+    $data = $ci->db->get('tbl_hak_akses');
+    if($data->num_rows()>0){
+        return "checked='checked'";
+    }
+}
+
 ?>

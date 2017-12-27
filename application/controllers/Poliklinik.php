@@ -42,7 +42,7 @@ class Poliklinik extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Simpan Data',
             'action' => site_url('poliklinik/create_action'),
 	    'id_poliklinik' => set_value('id_poliklinik'),
 	    'nama_poliklinik' => set_value('nama_poliklinik'),
