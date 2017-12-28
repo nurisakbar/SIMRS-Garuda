@@ -1,7 +1,15 @@
+super admin :
+email : nuris.akbar@gmail.com
+password : password
+
 Bagian pendaftaran 
 email : bagpendaftaran@gmail.com
 password : password
 
 bagian apotik :
 bagapotik@gmail.com
+password : password
+
+bagian kepegawaian :
+bagkepegawaian@gmail.com
 password : password

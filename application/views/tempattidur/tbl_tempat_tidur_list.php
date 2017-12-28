@@ -17,11 +17,13 @@
             <thead>
                 <tr>
                     <th width="30px">No</th>
-                    <th width="120">Kode Tempat Tidur</th>
+                    <th width="40">Kode</th>
 		    <th>Nama Ruangan</th>
                     <th>Nama Gedung</th>
-		    <th width="90">Status</th>
-		    <th width="170px">Action</th>
+                    <th>Kelas</th>
+                    <th>Tarif</th>
+		    <th width="50">Status</th>
+		    <th width="90px">Action</th>
                 </tr>
             </thead>
 	    
@@ -73,7 +75,7 @@
                             "orderable": false
                         },{"data": "kode_tempat_tidur"},
                         {"data": "nama_ruangan"},
-                        {"data": "nama_gedung"},{"data": "status"},
+                        {"data": "nama_gedung"},{"data": "kelas"},{"data": "tarif"},{"data": "status"},
                         {
                             "data" : "action",
                             "orderable": false,

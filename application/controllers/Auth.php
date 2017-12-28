@@ -17,7 +17,7 @@ Class Auth extends CI_Controller{
         if($user->num_rows()>0){
             // retrive user data to session
             $this->session->set_userdata($user->row_array());
-            redirect('user');
+            redirect('welcome');
         }else{
             $this->session->set_flashdata('status_login','email atau password yang anda input salah');
             redirect('auth');

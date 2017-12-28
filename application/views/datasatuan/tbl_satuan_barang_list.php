@@ -16,8 +16,9 @@
         <table class="table table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
-                    <th width="30px">No</th>
-		    <th>Nama Satuan</th>
+                    <th width="10px">No</th>
+		    <th width="100">Nama Satuan</th>
+                     <th>Keterangan</th>
 		    <th width="100px">Action</th>
                 </tr>
             </thead>
@@ -68,7 +69,7 @@
                         {
                             "data": "id_satuan",
                             "orderable": false
-                        },{"data": "nama_satuan"},
+                        },{"data": "nama_satuan"},{"data": "keterangan"},
                         {
                             "data" : "action",
                             "orderable": false,

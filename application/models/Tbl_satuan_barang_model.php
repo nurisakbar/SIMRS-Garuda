@@ -17,7 +17,7 @@ class Tbl_satuan_barang_model extends CI_Model
 
     // datatables
     function json() {
-        $this->datatables->select('id_satuan,nama_satuan');
+        $this->datatables->select('id_satuan,keterangan,nama_satuan');
         $this->datatables->from('tbl_satuan_barang');
         //add this line for join
         //$this->datatables->join('table2', 'tbl_satuan_barang.field = table2.field');
@@ -53,6 +53,7 @@ class Tbl_satuan_barang_model extends CI_Model
         $this->db->order_by($this->id, $this->order);
         $this->db->like('id_satuan', $q);
 	$this->db->or_like('nama_satuan', $q);
+        $this->db->or_like('keterangan', $q);
 	$this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }

@@ -46,6 +46,7 @@ class Datasatuan extends CI_Controller
             'action' => site_url('datasatuan/create_action'),
 	    'id_satuan' => set_value('id_satuan'),
 	    'nama_satuan' => set_value('nama_satuan'),
+            'keterangan' => set_value('keterangan'),
 	);
         $this->template->load('template','datasatuan/tbl_satuan_barang_form', $data);
     }
@@ -59,6 +60,7 @@ class Datasatuan extends CI_Controller
         } else {
             $data = array(
 		'nama_satuan' => $this->input->post('nama_satuan',TRUE),
+                'keterangan' => $this->input->post('keterangan',TRUE),
 	    );
 
             $this->Tbl_satuan_barang_model->insert($data);
@@ -77,6 +79,7 @@ class Datasatuan extends CI_Controller
                 'action' => site_url('datasatuan/update_action'),
 		'id_satuan' => set_value('id_satuan', $row->id_satuan),
 		'nama_satuan' => set_value('nama_satuan', $row->nama_satuan),
+                'keterangan' => set_value('keterangan', $row->keterangan),
 	    );
             $this->template->load('template','datasatuan/tbl_satuan_barang_form', $data);
         } else {
@@ -94,6 +97,7 @@ class Datasatuan extends CI_Controller
         } else {
             $data = array(
 		'nama_satuan' => $this->input->post('nama_satuan',TRUE),
+                'keterangan' => $this->input->post('keterangan',TRUE),
 	    );
 
             $this->Tbl_satuan_barang_model->update($this->input->post('id_satuan', TRUE), $data);

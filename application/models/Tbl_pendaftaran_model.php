@@ -50,7 +50,7 @@ class Tbl_pendaftaran_model extends CI_Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL,$cara_masuk) {
         $this->db->where('tbl_pendaftaran.cara_masuk',$cara_masuk);
-        //$this->db->where('tbl_pendaftaran.tanggal_daftar',date('Y-m-d'));
+        $this->db->where('tbl_pendaftaran.tanggal_daftar',date('Y-m-d'));
         $this->db->order_by('tbl_pendaftaran.no_rawat', 'ASC');
         /*
         $this->db->like('no_rawat', $q);

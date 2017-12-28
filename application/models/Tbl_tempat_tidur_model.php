@@ -17,15 +17,16 @@ class Tbl_tempat_tidur_model extends CI_Model
 
     // datatables
     function json() {
-        $this->datatables->select('kode_tempat_tidur,nama_ruangan,status,nama_gedung');
+        $this->datatables->select('id,kode_tempat_tidur,nama_ruangan,tarif,kelas,status,nama_gedung');
         $this->datatables->from('tbl_tempat_tidur');
         //add this line for join
         $this->datatables->join('tbl_ruang_rawat_inap', 'tbl_tempat_tidur.kode_ruang_rawat_inap = tbl_ruang_rawat_inap.	kode_ruang_rawat_inap');
         //$this->datatables->join('tbl_gedung_rawat_inap', 'tbl_ruang_rawat_inap = tbl_gedung_rawat_inap.kode_gedung_rawat_inap');
         $this->datatables->join('tbl_gedung_rawat_inap', 'tbl_ruang_rawat_inap.kode_gedung_rawat_inap = tbl_gedung_rawat_inap.kode_gedung_rawat_inap');
-        $this->datatables->add_column('action', anchor(site_url('tempattidur/read/$1'),'<i class="fa fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
-            ".anchor(site_url('tempattidur/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
-                ".anchor(site_url('tempattidur/delete/$1'),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'), 'kode_tempat_tidur');
+        $this->db->order_by('nama_ruangan','ASC');
+        $this->db->order_by('kode_tempat_tidur','ASC');
+        $this->datatables->add_column('action',anchor(site_url('tempattidur/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
+                ".anchor(site_url('tempattidur/delete/$1'),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'), 'id');
         return $this->datatables->generate();
     }
 

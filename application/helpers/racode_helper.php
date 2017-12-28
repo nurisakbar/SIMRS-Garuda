@@ -1,7 +1,7 @@
 <?php
-function cmb_dinamis($name,$table,$field,$pk,$selected=null){
+function cmb_dinamis($name,$table,$field,$pk,$selected=null,$extra=null){
     $ci = get_instance();
-    $cmb = "<select name='$name' class='form-control'>";
+    $cmb = "<select name='$name' class='form-control' $extra>";
     $data = $ci->db->get($table)->result();
     foreach ($data as $d){
         $cmb .="<option value='".$d->$pk."'";
@@ -49,7 +49,7 @@ function is_login(){
     if(empty($ci->session->userdata('id_users'))){
         redirect('auth');
     }else{
-        $modul = $ci->uri->segment(2);
+        $modul = $ci->uri->segment(1);
         
         $id_user_level = $ci->session->userdata('id_user_level');
         // dapatkan id menu berdasarkan nama controller
@@ -58,8 +58,8 @@ function is_login(){
         // chek apakah user ini boleh mengakses modul ini
         $hak_akses = $ci->db->get_where('tbl_hak_akses',array('id_menu'=>$id_menu,'id_user_level'=>$id_user_level));
         if($hak_akses->num_rows()<1){
-            //redirect('blokir');
-            //exit;
+            redirect('blokir');
+            exit;
         }
     }
 }

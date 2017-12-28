@@ -134,7 +134,7 @@ class Pendaftaran extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Simpan Pendaftaran',
             'action' => site_url('pendaftaran/create_action'),
 	    'no_registrasi' => set_value('no_registrasi'),
 	    'no_rawat' => set_value('no_rawat'),
@@ -664,7 +664,33 @@ class Pendaftaran extends CI_Controller
         
         $pdf->Output();
     }
-
+    
+    function tampil_kamar_ajax(){
+        $sql = "SELECT tt.id,tt.kode_tempat_tidur,tr.*,tg.nama_gedung
+                FROM tbl_tempat_tidur as tt,tbl_ruang_rawat_inap as tr, tbl_gedung_rawat_inap as tg
+                WHERE tt.kode_ruang_rawat_inap=tr.kode_ruang_rawat_inap and tg.kode_gedung_rawat_inap=tr.kode_gedung_rawat_inap";
+        
+        echo "<table class='table table-bordered'>
+            <tr>
+            <th width='70'>No Bed</th>
+            <th>Nama Ruangan</th>
+            <th>Nama Gedung</th>
+            <th width='100'>Kelas</th>
+            <th>Tarif</th>
+            <th></th></tr>";
+        $kamar = $this->db->query($sql)->result();
+        foreach ($kamar as $row){
+            echo "<tr>
+                <td>$row->kode_tempat_tidur</td>
+                <td>$row->nama_ruangan</td>
+                <td>$row->nama_gedung</td>
+                <td>$row->kelas</td>
+                <td>$row->tarif</td>
+                <td width='60'><button onClick='test()' class='btn btn-success btn-sm'>Pilih</button></td>
+                </tr>";
+        }
+        echo"</table>";
+    }
 }
 
 /* End of file Pendaftaran.php */

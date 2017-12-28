@@ -9,9 +9,11 @@ class Tempattidur extends CI_Controller
     {
         parent::__construct();
         is_login();
+        
         $this->load->model('Tbl_tempat_tidur_model');
         $this->load->library('form_validation');        
 	$this->load->library('datatables');
+        
     }
 
     public function index()
@@ -39,12 +41,14 @@ class Tempattidur extends CI_Controller
             redirect(site_url('tempattidur'));
         }
     }
+    
 
     public function create() 
     {
         $data = array(
             'button' => 'Create',
             'action' => site_url('tempattidur/create_action'),
+            'kode_gedung_rawat_inap' => set_value('kode_gedung_rawat_inap'),
 	    'kode_tempat_tidur' => set_value('kode_tempat_tidur'),
 	    'kode_ruang_rawat_inap' => set_value('kode_ruang_rawat_inap'),
 	    'status' => set_value('status'),
@@ -60,6 +64,8 @@ class Tempattidur extends CI_Controller
     
     public function create_action() 
     {
+        
+
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
@@ -67,7 +73,7 @@ class Tempattidur extends CI_Controller
         } else {
             $data = array(
                 'kode_tempat_tidur'=> $this->input->post('kode_tempat_tidur',TRUE),
-		'kode_ruang_rawat_inap' => $this->getKodeRuangRawatInap($this->input->post('kode_ruang_rawat_inap',TRUE)),
+		'kode_ruang_rawat_inap' => $this->input->post('kode_ruang_rawat_inap',TRUE),
 		'status' => $this->input->post('status',TRUE),
 	    );
 
@@ -79,12 +85,16 @@ class Tempattidur extends CI_Controller
     
     public function update($id) 
     {
-        $row = $this->Tbl_tempat_tidur_model->get_by_id($id);
-
+        $row    = $this->Tbl_tempat_tidur_model->get_by_id($id);
+ 
         if ($row) {
+        // get kode gedung
+        $ruangan = $this->db->get_where('tbl_ruang_rawat_inap',array('kode_ruang_rawat_inap'=>$row->kode_ruang_rawat_inap))->row_array(); 
+        $gedung = $this->db->get_where('tbl_gedung_rawat_inap',array('kode_gedung_rawat_inap'=>  $ruangan['kode_gedung_rawat_inap']))->row_array();
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('tempattidur/update_action'),
+                'kode_gedung_rawat_inap' => set_value('kode_gedung_rawat_inap',$gedung['kode_gedung_rawat_inap']),
 		'kode_tempat_tidur' => set_value('kode_tempat_tidur', $row->kode_tempat_tidur),
 		'kode_ruang_rawat_inap' => set_value('kode_ruang_rawat_inap', $row->kode_ruang_rawat_inap),
 		'status' => set_value('status', $row->status),
@@ -104,13 +114,15 @@ class Tempattidur extends CI_Controller
             $this->update($this->input->post('kode_tempat_tidur', TRUE));
         } else {
             $data = array(
+                'kode_tempat_tidur'=> $this->input->post('kode_tempat_tidur',TRUE),
 		'kode_ruang_rawat_inap' => $this->input->post('kode_ruang_rawat_inap',TRUE),
 		'status' => $this->input->post('status',TRUE),
 	    );
 
-            $this->Tbl_tempat_tidur_model->update($this->input->post('kode_tempat_tidur', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
+            $this->Tbl_tempat_tidur_model->update($this->input->post('id', TRUE), $data);
+            $this->session->set_flashdata('message', 'Update Record Success');          
             redirect(site_url('tempattidur'));
+            
         }
     }
     

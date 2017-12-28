@@ -23,6 +23,8 @@ class Gedung extends CI_Controller
         header('Content-Type: application/json');
         echo $this->Tbl_gedung_rawat_inap_model->json();
     }
+    
+
 
     public function read($id) 
     {

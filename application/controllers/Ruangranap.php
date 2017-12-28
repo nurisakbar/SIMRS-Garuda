@@ -23,6 +23,17 @@ class Ruangranap extends CI_Controller
         header('Content-Type: application/json');
         echo $this->Tbl_ruang_rawat_inap_model->json();
     }
+    
+    function ajax_list_ruangan(){
+        $kode_gedung = $_GET['kode_gedung'];
+        $this->db->where('kode_gedung_rawat_inap',$kode_gedung);
+        $data_ruangan = $this->db->get('tbl_ruang_rawat_inap')->result();
+        echo  "<select name='kode_ruang_rawat_inap' class='form-control'>";
+        foreach ($data_ruangan as $ruangan){
+            echo  "<option value='$ruangan->kode_ruang_rawat_inap'>$ruangan->nama_ruangan</option>";
+        }
+        echo "</select>";
+    }
 
     public function read($id) 
     {
