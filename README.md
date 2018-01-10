@@ -6,7 +6,9 @@ Update source ini saya jelaskan dalam video yang saya upload ke youtube, silahka
 [![Alt text](https://img.youtube.com/vi/oJXUglOUINI/hqdefault.jpg)](https://www.youtube.com/watch?v=oJXUglOUINI&list=PLkRYFqE3XEVdm9vbElY4CWZsOfiGPgbUh)
 
 ## Database
-Untuk teman teman yang sudah melakukan order DVD tutorial membangun sistem informasi rumah sakit silahkan chek update database terbaru di folder google drive yang sudah saya share
+Untuk teman teman yang sudah melakukan order DVD tutorial membangun sistem informasi rumah sakit silahkan chek update database terbaru di folder google drive yang sudah saya share.<br>
+
+Order : https://belajarphp.net/product/tutorial-sistem-informasi-rumah-sakit/
 
 ## Demo
 untuk demonya bisa anda akses disini : http://simrs.nurisakbar.com/index.php/auth
