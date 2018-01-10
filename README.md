@@ -1,6 +1,11 @@
-# SIMRS-Garuda
-Sistem informasi rumah sakit
-
+# Tentang SIMRS-Garuda
+Sistem Informasi Rumah Sakit Garuda adalah sebuah aplikasi yang dibuat menggunakan framework codeigniter 3 dan Template AdminLTE, beberapa proses sudah menggunakan teknik ajax dan menampilkan data menggunakan datatables.
+ 
 ## Update Tutorial Penggunaan
+[![Alt text](https://img.youtube.com/vi/oJXUglOUINI/hqdefault.jpg)](https://www.youtube.com/watch?v=oJXUglOUINI&list=PLkRYFqE3XEVdm9vbElY4CWZsOfiGPgbUh)
 
-[![Alt text](https://img.youtube.com/vi/oJXUglOUINI&list//hqdefault.jpg)](https://www.youtube.com/watch?v=oJXUglOUINI&list=PLkRYFqE3XEVdm9vbElY4CWZsOfiGPgbUh)
+## Database
+Untuk teman teman yang sudah melakukan order DVD tutorial membangun sistem informasi rumah sakit silahkan chek update database terbaru di folder google drive yang sudah saya share
+
+## Demo
+http://simrs.nurisakbar.com/index.php/auth
