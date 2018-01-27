@@ -328,6 +328,7 @@
         <!-- ./wrapper -->
         <script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>assets/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+
         <!-- jQuery 3
         <script src="<?php echo base_url() ?>assets/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
         -->
@@ -365,6 +366,11 @@
                     'autoWidth'   : false
                 })
             })
+        </script>
+        <script>
+            $( function() {
+                $( "#datepicker" ).datepicker();
+            } );
         </script>
     </body>
 </html>

@@ -74,7 +74,7 @@ class Pasien extends CI_Controller
     {
         $noRekbaru = noRekemedisOtomatis();
         $data = array(
-            'button' => 'Create',
+            'button' => 'Simpan Data Pasien',
             'action' => site_url('pasien/create_action'),
 	    'no_rekamedis' => set_value('no_rekamedis',$noRekbaru),
 	    'nama_pasien' => set_value('nama_pasien'),
